@@ -1,6 +1,13 @@
 const express = require('express')
 const app = express()
 
+
+// A opção "extended" diz para o express qual biblioteca ele deve utilizar para fazer o parsing do conteúdo das requisições que ele recebe.
+// Quando extended : true vai utilizar a biblioteca qs e quando for false ele vai utilizar a biblioteca querystring.
+
+// A diferença entre elas é que a biblioteca qs permite o aninhamento de objetos (nested objects), que é praticamente como o JSON trabalha:
+
+// {"animal":{"tipo":"cachorro","raca":"vira-lata","idade":3}}
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, resp) => {
